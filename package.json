@@ -1,10 +1,10 @@
 {
-  "name": "prj2",
+  "name": "locationsearch",
   "version": "1.0.0",
   "description": "project 2",
   "main": "routes.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
@@ -15,19 +15,18 @@
     "gulp-header": "^1.8.7",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.4",
     "jquery": "^1.11.3"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rnguyen05/prj2.git"
+    "url": "https://github.com/rnguyen05/locationsearch.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rnguyen05/prj2/issues"
+    "url": "https://github.com/rnguyen05/locationsearch/issues"
   },
-  "homepage": "https://github.com/rnguyen05/prj2#readme",
+  "homepage": "https://github.com/rnguyen05/locationsearch#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
@@ -35,6 +34,7 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "path": "^0.12.7",
-    "sequelize": "^4.37.10"
+    "sequelize": "^4.37.10",
+    "sequelize-cli": "^4.0.0"
   }
 }
