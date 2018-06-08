@@ -1,0 +1,40 @@
+{
+  "name": "prj2",
+  "version": "1.0.0",
+  "description": "project 2",
+  "main": "routes.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnguyen05/prj2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rnguyen05/prj2/issues"
+  },
+  "homepage": "https://github.com/rnguyen05/prj2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "path": "^0.12.7",
+    "sequelize": "^4.37.10"
+  }
+}
