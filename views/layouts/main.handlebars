@@ -37,8 +37,8 @@
       autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('location')),
         //{ types: ['geocode'] });
-		 { types: ['cities'] ,
-		 componentRestrictions: {country: "us"}});
+		 { types: ['(cities)']});
+		 //componentRestrictions: {country: "us"}});
      
     } //end of initAutoComplete()
     // Bias the autocomplete object to the user's geographical location,
