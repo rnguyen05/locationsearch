@@ -29,5 +29,13 @@
 	 crossorigin="anonymous"></script>
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIhHffE-2bM0dKR_v3yHISDNhUAFdO4w&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
+<script>
+        function initAutocomplete() {
+            var placeSearch, autocomplete;
+          autocomplete = new google.maps.places.Autocomplete(
+                (document.getElementById('search-input')),
+            { types: ['geocode'] });
+        }
+</script>
 
 </html>
