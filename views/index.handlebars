@@ -1,11 +1,13 @@
 <div class="container">
-    <form id="locationSearch">  
+    <form id="locationInputForm">  
         <div class="form-group">
-            <label for="locationSearch"><h5>Search Property</h5></label>
-            <input id="location" type="input" class="form-control" placeholder="Enter Zip Code or City" required>
+            <label for="locationInput"><h5>Search Property</h5></label>
+            <input id="locationInput" type="input" class="form-control" placeholder="Enter Zip Code or City" required>
          </div>      
-             <button type="submit" class="btn btn-secondary" id="submitBtn">Submit</button>
+            <button type="submit" class="btn btn-secondary" id="submitBtn">Submit</button>
     </form>  
 </div>
 
-
+<script src="/assets/js/place-search.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIhHffE-2bM0dKR_v3yHISDNhUAFdO4w&libraries=places&callback=initAutocomplete"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

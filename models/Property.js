@@ -11,8 +11,18 @@ module.exports = function(sequelize, DataTypes) {
           len: [2]
         }
       },
-      property_id: {
-        type: DataTypes.INTEGER
+      zipcode: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          len: [5]
+        }
+      },
+      createdAt: {
+        type: DataTypes.DATE
+      },
+      updatedAt: {
+        type: DataTypes.DATE
       }
     });
     return Property;

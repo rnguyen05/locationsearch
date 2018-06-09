@@ -1,13 +1,19 @@
 
 const db = require("../models");
 
-
-exports.getProperties = function(req, res) {
-    console.log(req);
+exports.index = function(req, res) {
+    console.log("zzzzz---inside controllers/property-controller.js");
     db.Property.findAll({
-        where: {zipcode: req.body.zipcode}
-      }).then(function(results){
-        console.log(results);
-        res.json(results);
+      where: {
+        zipcode: req.params.location
+      }
+    }).then(function(dbProperty) {
+      console.log(dbProperty);
+      res.render('properties/properties'
+    //   , {
+    //     layout: 'main-properties',
+    //     property: dbProperty
+    //   }
+    );
     });
 };
