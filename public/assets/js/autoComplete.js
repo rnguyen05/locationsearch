@@ -10,11 +10,11 @@ $(document).ready(function() {
     function geolocate() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          var geolocation = {
+          const geolocation = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          var circle = new google.maps.Circle({
+          const circle = new google.maps.Circle({
             center: geolocation,
             radius: position.coords.accuracy
           });
