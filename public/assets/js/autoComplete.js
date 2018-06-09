@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const placeSearch, autocomplete;
+    var placeSearch, autocomplete;
     function initAutocomplete() {
       // Create the autocomplete object, restricting the search to geographical
       // location types.
@@ -10,11 +10,11 @@ $(document).ready(function() {
     function geolocate() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          const geolocation = {
+          var geolocation = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          const circle = new google.maps.Circle({
+          var circle = new google.maps.Circle({
             center: geolocation,
             radius: position.coords.accuracy
           });
