@@ -1,4 +1,4 @@
-$(document).ready(function() {
+(function() {
     var placeSearch, autocomplete;
     function initAutocomplete() {
       // Create the autocomplete object, restricting the search to geographical
