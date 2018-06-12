@@ -1,35 +1,14 @@
-$(document).ready(function() {
-
-  const locationInput = $("#locationInput");
-
-  //Ajax call to database table Properties
-  
-
+$(document).ready(function () {
+  const location = $("#location");
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (!locationInput.val().trim()) {
+    if (!location.val().trim()) {
       return;
     }
-    console.log(locationInput.val());
-    $.get("/properties/"+locationInput.val());
-
-    // $.ajax({
-    //   method: "GET",
-    //   url: "/properties",
-    //   data: locationInput.val()
-    // })
-    // .done(function() {
-    //   window.location.href = "/properties";
-    //   console.log("inside public/assets/js/property.js");
-    //   console.log(locationInput.val());
-    // });
-
-
-
-
+    $.post("/properties/" + location.val());
+    console.log("get /properties/"+location.val());
   };
 
   $("#locationInputForm").on("click", handleFormSubmit);
 });
-
