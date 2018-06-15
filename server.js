@@ -3,13 +3,14 @@
 const express        = require('express');
 const path           = require('path');
 
-// const logger         = require('morgan');
-// const cookieParser   = require('cookie-parser'); // for working with cookies
+const logger         = require('morgan');
+const cookieParser   = require('cookie-parser'); // for working with cookies
 const bodyParser     = require('body-parser');
-// const session        = require('express-session'); 
+const session        = require('express-session'); 
 // const methodOverride = require('method-override'); // for deletes in express
-// const passport 			 = require("./config/passport");
+const passport 			 = require("./config/passport");
 // const config				 = require("./config/extra-config");
+
 
 
 // Express settings
@@ -21,22 +22,23 @@ const app            = express();
 //app.use(methodOverride('_method'));
 
 //allow sessions
-// app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
-// app.use(cookieParser());
+app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
+app.use(cookieParser());
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './views'));
 
 //set up handlebars
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views/layouts'
 }));
 
 app.set('view engine', 'handlebars');
 
-// var isAuth 				 = require("./config/middleware/isAuthenticated");
-// var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
+var isAuth 				 = require("./config/middleware/isAuthenticated");
+var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -46,10 +48,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(authCheck);
+//app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(authCheck);
 
 
 require('./routes')(app);

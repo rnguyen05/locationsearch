@@ -1,1 +1,11 @@
-<h1>properties handlebars</h1>
+<div class="container">
+    {{#each property}}
+        <ul>
+            <li>{{this.id}}</li>
+            <li>{{this.city}}</li>
+            <li>{{this.state}}</li>
+            <li>{{this.zipcode}}</li>
+        </ul>
+
+    {{/each}}
+</div>

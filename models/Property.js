@@ -1,3 +1,6 @@
+
+'use strict';
+
 module.exports = function(sequelize, DataTypes) {
     var Property = sequelize.define("Property", {
       city: {

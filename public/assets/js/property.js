@@ -1,14 +1,21 @@
-$(document).ready(function () {
-  const location = $("#location");
 
-  function handleFormSubmit(event) {
+
+
+$(document).ready(function () {
+
+  $("#searchBtn").on("click", function (event) {
+    
+    const location = $("#location").val().trim();
+
     event.preventDefault();
-    if (!location.val().trim()) {
+    if (!location) {
       return;
     }
-    $.post("/properties/" + location.val());
-    console.log("get /properties/"+location.val());
-  };
+    
+    $.get("/properties/" + location, function() {
+      window.location.href = "/properties/" + location;
+    });
 
-  $("#locationInputForm").on("click", handleFormSubmit);
+  });
+
 });

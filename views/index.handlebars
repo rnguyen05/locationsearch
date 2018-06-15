@@ -1,12 +1,19 @@
+
 <div class="container">
     <form id="locationInputForm">  
         <div class="form-group">
             <label for="location"><h5>Search Property</h5></label>
             <input id="location" type="input" class="form-control" placeholder="Enter Zip Code or City" required>
-         </div>      
-            <button type="submit" class="btn btn-secondary" id="submitBtn">Submit</button>
-    </form>  
+         </div>     
+            <button type="submit" class="btn btn-secondary" id="searchBtn">Search</button>
+    </form> 
+            <button type="submit" class="btn btn-secondary" id="loginBtn">Login</button>
+            <button type="submit" class="btn btn-secondary" id="registerBtn">Register</button>
+            {{> facebookBtn }}   
+            
+    
 </div>
+
 
 {{!-- <script src="/assets/js/autoComplete.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIhHffE-2bM0dKR_v3yHISDNhUAFdO4w&libraries=places&callback=initAutocomplete"></script>

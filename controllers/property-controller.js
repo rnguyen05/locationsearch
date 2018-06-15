@@ -2,8 +2,8 @@ const db = require("../models");
 
 
 exports.index = function (req, res) {
-    console.log("inside property-controller");
-    console.log(req.params.location);
+    // console.log("inside property-controller");
+    // console.log(req.params.location);
     db.Property.findAll({
         where: {
           zipcode: req.params.location
@@ -11,14 +11,18 @@ exports.index = function (req, res) {
         raw:true
       }).then(function(dbProperty) {
         console.log(dbProperty);
-        res.render('/properties/index'
-        // , {
-        //   layout: 'main-properties',
-        //   property: dbProperty
-        // }
+        res.render('properties/properties'
+        , {
+          layout: "main-properties"
+          ,
+          property: dbProperty
+        }
+        
       );
+      
       });
 };
+
 
 
 
