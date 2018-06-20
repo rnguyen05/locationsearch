@@ -1,9 +1,7 @@
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
-
-const db = require("../models");
+var db = require("../models");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
@@ -35,43 +33,6 @@ passport.use(new LocalStrategy(
     });
   }
 ));
-
-
-// //Facebook Authentication
-// clientID: credentials.facebook.app_id,
-// clientSecret: credentials.facebook.app_secret,
-// callbackURL: credentials.facebook.callback,
-passport.use(new FacebookStrategy({
-	clientID: "202065647087620",
-	clientSecret: "77c213b28e805272002ed465854d3cca",
-	callbackURL: 'https://locationsearch-prj2.herokuapp.com/',
-	profileFields:['id','displayName','emails']
-	}, function(accessToken, refreshToken, profile, done) {
-		console.log(profile);
-		var me = new user({
-			email:profile.emails[0].value,
-			name:profile.displayName
-		});
-
-		/* save if new */
-		user.findOne({email:me.email}, function(err, u) {
-			if(!u) {
-				me.save(function(err, me) {
-					if(err) return done(err);
-					done(null,me);
-				});
-			} else {
-				console.log(u);
-				done(null, u);
-			}
-		});
-  }
-));
-
-
-
-
-
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user

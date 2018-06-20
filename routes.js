@@ -7,6 +7,6 @@ module.exports = function(app){
             
             app.use('/', application);
             app.use('/properties', properties);
-            app.use('/users', users);
+            app.use('/login', users);
             //app.use('/searchproperties', searchproperties);
 }

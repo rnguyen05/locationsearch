@@ -9,7 +9,7 @@ const bodyParser     = require('body-parser');
 const session        = require('express-session'); 
 // const methodOverride = require('method-override'); // for deletes in express
 const passport 			 = require("./config/passport");
-// const config				 = require("./config/extra-config");
+const config				 = require("./config/extra-config");
 
 
 
@@ -42,13 +42,13 @@ var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-// app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
+app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(authCheck);

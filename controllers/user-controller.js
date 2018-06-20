@@ -1,55 +1,59 @@
 
 
-const db = require("../models");
 
-//main login page
-exports.login = function(req, res) {
-    res.render('users/login', 
-                {
-                    layout: "main-login"
-                });
+var db = require('../models');
+
+
+exports.index = function(req, res) {
+    console.log("inside users controller index");
+    // res.render('index');
+    res.render('users/login', {
+        layout: 'main-login'
+      });
+  
 };
 
-//Registration page
-exports.registration = function (req, res) {
-    res.render('users/registration', {
-        layout: "main-registration"
-    });
+//this is the users_controller.js file
+exports.registrationPage = function(req,res) {
+  res.render('users/registration', {
+    layout: 'main-registration'
+  });
 };
 
-//Logout redirect to index page
 exports.signOutUser = function(req,res) {
-    req.logout();
-    res.redirect("/");
+  req.logout();
+  res.redirect("/");
 };
 
-//Login - sends back json for window.location.replace()
+// login
 exports.loginUser = function(req, res) {
-    console.log("was in user-controller/loginUser");
-    console.log(req);
-    console.log(res);
-    res.json("/");
+    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+    // So we're sending the user back the route to the members page because the redirect will happen on the front end
+    // They won't get this or even be able to access this page if they aren't authed
+  res.json("/");
 };
 
-//Register a User
+// register a user
 exports.signUpUser = function(req,res) {
-    db.User.findAll({
+
+  db.User.findAll({
     where: {username: req.body.username}
-    }).then(function(users) {
+  }).then(function(users) {
     if (users.length > 0) {
-        res.json({
+      res.json({
         duplicateUser: true
-        });
+      });
+    //At some point, make sure that only one user can be associated with an email.
     } else {
-        db.User.create({
+      db.User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
-        }).then(function() {
+      }).then(function() {
         res.send({redirect: '/'});
-        }).catch(function(err) {
+      }).catch(function(err) {
         res.json(err);
-        });
+      });
     }
-    })
+  })
 };
